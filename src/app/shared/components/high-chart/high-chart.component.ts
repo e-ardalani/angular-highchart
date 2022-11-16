@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import Highcharts from 'highcharts';
+import GroupedCategories from 'highcharts-grouped-categories/grouped-categories';
+GroupedCategories(Highcharts);
 
 @Component({
   selector: 'app-high-chart',
@@ -6,10 +9,144 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./high-chart.component.scss']
 })
 export class HighChartComponent implements OnInit {
+  _data;
+  @Input() set data(value) {
+    this._data = value;
+    // console.log(this._data)
+    const dataFirst = this._data[0].data.map(item => item.value);
+    this.linechart.series[0].data = dataFirst;
+    const dataSecond = this._data[1].data.filter(item => item.name === 'ارفع').map(item => item.value);
+    const dataThird = this._data[1].data.filter(item => item.name === 'اخابر').map(item => item.value);
+    this.linechart.series[1].data = dataSecond;
+    this.linechart.series[2].data = dataThird;
+    // console.log(this.linechart)
 
-  constructor() { }
-
-  ngOnInit(): void {
+    this.linechart = JSON.parse(JSON.stringify(this.linechart))
   }
 
+  Highcharts = Highcharts;
+  linechart: any = {
+    series: [{
+      type: 'column',
+      name: 'درآمد عملیاتی',
+      data: [3, 2, 1, 3, 4, 3, 2, 1, 3, 4, 12]
+    }, {
+      type: 'spline',
+      name: 'حاشیه سود عملیاتی - ارفع',
+      data: [2, 3, 5, 7, 6, 2, 3, 5, 7, 6, 12]
+    },
+      {
+        type: 'spline',
+        name: 'حاشیه سود عملیاتی - اخابر',
+        data: [3, 2.67, 3, 6.33, 3.33, 3, 2.67, 3, 6.33, 3.33, 7]
+      }],
+    chart: {},
+    title: {
+      text: '',
+    },
+    tooltip: {
+      shared: true
+    },
+    xAxis: {
+      categories: [
+        {
+          name: "1395 Q4",
+          categories: [
+            {
+              name: "ارفع",
+            },
+            {
+              name: "اخابر",
+            }
+          ]
+        },
+        {
+          name: "1396 Q4",
+          categories: [
+            {
+              name: "ارفع",
+            },
+            {
+              name: "اخابر",
+            }
+          ]
+        },
+        {
+          name: "1397 Q4",
+          categories: [
+            {
+              name: "ارفع",
+            },
+            {
+              name: "اخابر",
+            }
+          ]
+        },
+        {
+          name: "1398 Q4",
+          categories: [
+            {
+              name: "ارفع",
+            },
+            {
+              name: "اخابر",
+            }
+          ]
+        },
+        {
+          name: "1399 Q4",
+          categories: [
+            {
+              name: "ارفع",
+            },
+            {
+              name: "اخابر",
+            }
+          ]
+        },
+        {
+          name: "1400 Q4",
+          categories: [
+            {
+              name: "ارفع",
+            },
+            {
+              name: "اخابر",
+            }
+          ]
+        }
+      ]
+    },
+    yAxis: [{
+      title: {
+        text: 'م ریال'
+      },
+      labels: {
+        format: '{value} M'
+      },
+    },
+      {
+        title: {
+          text: 'درصد'
+        },
+        minPadding: 0,
+        maxPadding: 0,
+        max: 100,
+        min: 0,
+        opposite: true,
+        labels: {
+          format: "{value}%"
+        }
+      }]
+  };
+
+  ngOnInit(): void {
+    const dataFirst = this._data[0].data.map(item => item.value);
+    this.linechart.series[0].data = dataFirst;
+
+    const dataSecond = this._data[1].data.filter(item => item.name === 'ارفع').map(item => item.value);
+    const dataThird = this._data[1].data.filter(item => item.name === 'اخابر').map(item => item.value);
+    this.linechart.series[1].data = dataSecond;
+    this.linechart.series[2].data = dataThird;
+  }
 }

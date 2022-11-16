@@ -1,1 +1,10 @@
-<app-date-picker  [label]="'انتخاب سال مبدا'"></app-date-picker>
+<div class="chart-container">
+  <app-date-picker dir="rtl" [label]="'انتخاب سال مبدا'"></app-date-picker>
+
+  <app-multi-select dir="rtl" class="selectList-full-width" [data]="selectData"
+                    (onSelectionChange)="getData($event)"></app-multi-select>
+
+</div>
+
+
+<app-high-chart [data]="chartData"></app-high-chart>
