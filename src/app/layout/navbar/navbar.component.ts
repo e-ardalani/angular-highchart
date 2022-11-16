@@ -3,11 +3,11 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  selector: 'app-navebar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class NavbarComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
   isExpanded = true;
   showSubmenu: boolean = false;
