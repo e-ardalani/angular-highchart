@@ -16,11 +16,12 @@ export class HighChartComponent implements OnInit {
     this._data = value;
     const dataFirst = this._data[0].data.map(item => item.value);
     this.linechart.series[0].data = dataFirst;
+    console.log(this._data[1])
     const dataSecond = this._data[1].data.filter(item => item.name === 'ارفع').map(item => (item.value) * 100);
     const dataThird = this._data[1].data.filter(item => item.name === 'اخابر').map(item => (item.value) * 100);
     this.linechart.series[1].data = dataSecond;
     this.linechart.series[2].data = dataThird;
-
+    console.log(this.linechart)
     this.linechart = JSON.parse(JSON.stringify(this.linechart))
   }
 
@@ -44,6 +45,7 @@ export class HighChartComponent implements OnInit {
       type: 'column',
       name: 'درآمد عملیاتی',
       yAxis: 0,
+      xAxis: 1,
       data: [3, 2, 1, 3, 4, 3, 2, 1, 3, 4, 12],
       style: {
         fontFamily: 'Yekan'
@@ -52,6 +54,7 @@ export class HighChartComponent implements OnInit {
       type: 'spline',
       name: 'حاشیه سود عملیاتی - ارفع',
       yAxis: 1,
+      xAxis: 1,
       data: [2, 3, 5, 7, 6, 2, 3, 5, 7, 6, 12],
       style: {
         fontFamily: 'Yekan'
@@ -61,6 +64,7 @@ export class HighChartComponent implements OnInit {
         type: 'spline',
         name: 'حاشیه سود عملیاتی - اخابر',
         yAxis: 1,
+        xAxis: 1,
         data: [3, 2.67, 3, 6.33, 3.33, 3, 2.67, 3, 6.33, 3.33, 7],
         style: {
           fontFamily: 'Yekan'
@@ -70,7 +74,7 @@ export class HighChartComponent implements OnInit {
     title: {
       text: '',
     },
-    xAxis: {
+    xAxis: [{
       categories: [
         {
           name: '1395 Q4',
@@ -80,9 +84,6 @@ export class HighChartComponent implements OnInit {
           categories: [
             {
               name: 'ارفع',
-            },
-            {
-              name: 'اخابر',
             }
           ]
         },
@@ -94,9 +95,6 @@ export class HighChartComponent implements OnInit {
           categories: [
             {
               name: 'ارفع',
-            },
-            {
-              name: 'اخابر',
             }
           ]
         },
@@ -108,9 +106,6 @@ export class HighChartComponent implements OnInit {
           categories: [
             {
               name: 'ارفع',
-            },
-            {
-              name: 'اخابر',
             }
           ]
         },
@@ -122,9 +117,6 @@ export class HighChartComponent implements OnInit {
           categories: [
             {
               name: 'ارفع',
-            },
-            {
-              name: 'اخابر',
             }
           ]
         },
@@ -136,9 +128,6 @@ export class HighChartComponent implements OnInit {
           categories: [
             {
               name: 'ارفع',
-            },
-            {
-              name: 'اخابر',
             }
           ]
         },
@@ -150,14 +139,99 @@ export class HighChartComponent implements OnInit {
           categories: [
             {
               name: 'ارفع',
-            },
-            {
-              name: 'اخابر',
             }
           ]
         }
       ]
     },
+      {
+        categories: [
+          {
+            name: '1395 Q4',
+            style: {
+              fontFamily: 'Yekan'
+            },
+            categories: [
+              {
+                name: 'ارفع',
+              },
+              {
+                name: 'اخابر',
+              }
+            ]
+          },
+          {
+            name: '1396 Q4',
+            style: {
+              fontFamily: 'Yekan'
+            },
+            categories: [
+              {
+                name: 'ارفع',
+              },
+              {
+                name: 'اخابر',
+              }
+            ]
+          },
+          {
+            name: '1397 Q4',
+            style: {
+              fontFamily: 'Yekan'
+            },
+            categories: [
+              {
+                name: 'ارفع',
+              },
+              {
+                name: 'اخابر',
+              }
+            ]
+          },
+          {
+            name: '1398 Q4',
+            style: {
+              fontFamily: 'Yekan'
+            },
+            categories: [
+              {
+                name: 'ارفع',
+              },
+              {
+                name: 'اخابر',
+              }
+            ]
+          },
+          {
+            name: '1399 Q4',
+            style: {
+              fontFamily: 'Yekan'
+            },
+            categories: [
+              {
+                name: 'ارفع',
+              },
+              {
+                name: 'اخابر',
+              }
+            ]
+          },
+          {
+            name: '1400 Q4',
+            style: {
+              fontFamily: 'Yekan'
+            },
+            categories: [
+              {
+                name: 'ارفع',
+              },
+              {
+                name: 'اخابر',
+              }
+            ]
+          }
+        ]
+      }],
     yAxis: [{
       title: {
         text: 'م ریال',

@@ -2,16 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {Chart1Component} from './pages/chart1/chart1.component';
 import {Chart2Component} from './pages/chart2/chart2.component';
-import {ChartsComponent} from './pages/charts/charts.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: ChartsComponent
-  },
-  {
-    path: 'chart1',
     component: Chart1Component
   },
   {
