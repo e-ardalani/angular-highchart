@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import Highcharts from 'highcharts';
+import Highcharts, {Options} from 'highcharts';
 import GroupedCategories from 'highcharts-grouped-categories/grouped-categories';
 
 GroupedCategories(Highcharts);
@@ -9,27 +9,8 @@ GroupedCategories(Highcharts);
   templateUrl: './high-chart.component.html',
   styleUrls: ['./high-chart.component.scss']
 })
-export class HighChartComponent implements OnInit {
-  _data;
-
-  @Input() set data(value) {
-    this._data = value;
-    const dataFirst = this._data[0].data.map(item => item.value);
-    this.linechart.series[0].data = dataFirst;
-    console.log(this._data[1])
-    const dataSecond = this._data[1].data.filter(item => item.name === 'ارفع').map(item => (item.value) * 100);
-    const dataThird = this._data[1].data.filter(item => item.name === 'اخابر').map(item => (item.value) * 100);
-    this.linechart.series[1].data = dataSecond;
-    this.linechart.series[2].data = dataThird;
-    console.log(this.linechart)
-    this.linechart = JSON.parse(JSON.stringify(this.linechart))
-  }
-
-  Highcharts = Highcharts;
-  linechart: any = {
-    style: {
-      fontFamily: 'Yekan'
-    },
+export class HighChartComponent {
+  options: Options = {
     tooltip: {
       style: {
         fontFamily: 'Yekan'
@@ -41,197 +22,14 @@ export class HighChartComponent implements OnInit {
       shared: true,
       useHTML: true
     },
-    series: [{
-      type: 'column',
-      name: 'درآمد عملیاتی',
-      yAxis: 0,
-      xAxis: 1,
-      data: [3, 2, 1, 3, 4, 3, 2, 1, 3, 4, 12],
-      style: {
-        fontFamily: 'Yekan'
-      },
-    }, {
-      type: 'spline',
-      name: 'حاشیه سود عملیاتی - ارفع',
-      yAxis: 1,
-      xAxis: 1,
-      data: [2, 3, 5, 7, 6, 2, 3, 5, 7, 6, 12],
-      style: {
-        fontFamily: 'Yekan'
-      },
-    },
-      {
-        type: 'spline',
-        name: 'حاشیه سود عملیاتی - اخابر',
-        yAxis: 1,
-        xAxis: 1,
-        data: [3, 2.67, 3, 6.33, 3.33, 3, 2.67, 3, 6.33, 3.33, 7],
-        style: {
-          fontFamily: 'Yekan'
-        },
-      }],
+    series: [],
     chart: {},
     title: {
       text: '',
     },
     xAxis: [{
-      categories: [
-        {
-          name: '1395 Q4',
-          style: {
-            fontFamily: 'Yekan'
-          },
-          categories: [
-            {
-              name: 'ارفع',
-            }
-          ]
-        },
-        {
-          name: '1396 Q4',
-          style: {
-            fontFamily: 'Yekan'
-          },
-          categories: [
-            {
-              name: 'ارفع',
-            }
-          ]
-        },
-        {
-          name: '1397 Q4',
-          style: {
-            fontFamily: 'Yekan'
-          },
-          categories: [
-            {
-              name: 'ارفع',
-            }
-          ]
-        },
-        {
-          name: '1398 Q4',
-          style: {
-            fontFamily: 'Yekan'
-          },
-          categories: [
-            {
-              name: 'ارفع',
-            }
-          ]
-        },
-        {
-          name: '1399 Q4',
-          style: {
-            fontFamily: 'Yekan'
-          },
-          categories: [
-            {
-              name: 'ارفع',
-            }
-          ]
-        },
-        {
-          name: '1400 Q4',
-          style: {
-            fontFamily: 'Yekan'
-          },
-          categories: [
-            {
-              name: 'ارفع',
-            }
-          ]
-        }
-      ]
-    },
-      {
-        categories: [
-          {
-            name: '1395 Q4',
-            style: {
-              fontFamily: 'Yekan'
-            },
-            categories: [
-              {
-                name: 'ارفع',
-              },
-              {
-                name: 'اخابر',
-              }
-            ]
-          },
-          {
-            name: '1396 Q4',
-            style: {
-              fontFamily: 'Yekan'
-            },
-            categories: [
-              {
-                name: 'ارفع',
-              },
-              {
-                name: 'اخابر',
-              }
-            ]
-          },
-          {
-            name: '1397 Q4',
-            style: {
-              fontFamily: 'Yekan'
-            },
-            categories: [
-              {
-                name: 'ارفع',
-              },
-              {
-                name: 'اخابر',
-              }
-            ]
-          },
-          {
-            name: '1398 Q4',
-            style: {
-              fontFamily: 'Yekan'
-            },
-            categories: [
-              {
-                name: 'ارفع',
-              },
-              {
-                name: 'اخابر',
-              }
-            ]
-          },
-          {
-            name: '1399 Q4',
-            style: {
-              fontFamily: 'Yekan'
-            },
-            categories: [
-              {
-                name: 'ارفع',
-              },
-              {
-                name: 'اخابر',
-              }
-            ]
-          },
-          {
-            name: '1400 Q4',
-            style: {
-              fontFamily: 'Yekan'
-            },
-            categories: [
-              {
-                name: 'ارفع',
-              },
-              {
-                name: 'اخابر',
-              }
-            ]
-          }
-        ]
-      }],
+      categories: [],
+    }],
     yAxis: [{
       title: {
         text: 'م ریال',
@@ -243,8 +41,7 @@ export class HighChartComponent implements OnInit {
         style: {
           fontFamily: 'Yekan'
         },
-        useHTML: true,
-        text: '<p>{{value}} M</p>'
+        format: `{value}`,
       }
     },
       {
@@ -267,16 +64,88 @@ export class HighChartComponent implements OnInit {
         }
       }],
   };
+  updateFlag = false;
+  oneToOne = true;
+  chart = Highcharts;
+
+  @Input() set data(value) {
+    if (value.length === 0)
+      return;
+    const xAxisArr = [];
+    const series = [];
+
+    const groupByDate = this.groupBy(value[0].data, 'date');
+    const incomeAxis = {categories: []};
+    const profitAxis = {categories: [], visible: false};
+    xAxisArr.push(incomeAxis);
+    xAxisArr.push(profitAxis);
+
+    Object.keys(groupByDate).forEach(key => {
+      const category = {
+        name: key,
+        style: {
+          fontFamily: 'Yekan'
+        },
+        categories: []
+      };
+      groupByDate[key].forEach(val => {
+        category.categories.push({
+          name: val.name
+        });
+      });
+      incomeAxis.categories.push(category);
+      profitAxis.categories.push({
+        name: key,
+        style: {
+          fontFamily: 'Yekan'
+        },
+        categories: []
+      });
+    });
+    const incomeValues = value[0].data.map(item => item.value)
+    const incomeSerie = {
+      type: 'column',
+      name: value[0].name,
+      yAxis: 0,
+      xAxis: 0,
+      data: incomeValues,
+      style: {
+        fontFamily: 'Yekan'
+      },
+    };
+    series.push(incomeSerie);
+    const groupByName = this.groupBy(value[1].data, 'name')
+    Object.keys(groupByName).forEach(key => {
+      const data2 = groupByName[key].map(item => (item.value) * 100)
+      const serie = {
+        type: 'spline',
+        name: value[1].name + ' ' + key,
+        yAxis: 1,
+        xAxis: 1,
+        data: data2,
+        style: {
+          fontFamily: 'Yekan'
+        },
+      };
+      series.push(serie);
+    });
 
 
-  ngOnInit(): void {
-    // this.linechart = this._config;
-    const dataFirst = this._data[0].data.map(item => item.value);
-    this.linechart.series[0].data = dataFirst;
-
-    const dataSecond = this._data[1].data.filter(item => item.name === 'ارفع').map(item => (item.value) * 100);
-    const dataThird = this._data[1].data.filter(item => item.name === 'اخابر').map(item => (item.value) * 100);
-    this.linechart.series[1].data = dataSecond;
-    this.linechart.series[2].data = dataThird;
+    this.updateChart(xAxisArr, series);
   }
+
+  groupBy(xs, key) {
+    return xs.reduce((rv, x) => {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+  }
+
+  updateChart(xAxisArr, ser) {
+    this.options.series = ser;
+    this.options.xAxis = xAxisArr;
+    this.updateFlag = true;
+  }
+
+
 }
