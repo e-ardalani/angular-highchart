@@ -8,7 +8,7 @@ import {ChartsComponent} from './pages/charts/charts.component';
 const routes: Routes = [
   {
     path: '',
-    component: Chart1Component
+    component: ChartsComponent
   },
   {
     path: 'chart1',

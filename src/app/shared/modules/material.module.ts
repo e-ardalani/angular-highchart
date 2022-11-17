@@ -114,7 +114,6 @@ import {MatTreeModule} from '@angular/material/tree';
     MatSortModule,
     MatTableModule,
     MatTabsModule,
-    MatToolbarModule,
     MatTooltipModule,
   ]
 })

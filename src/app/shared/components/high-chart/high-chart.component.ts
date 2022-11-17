@@ -10,12 +10,6 @@ GroupedCategories(Highcharts);
   styleUrls: ['./high-chart.component.scss']
 })
 export class HighChartComponent implements OnInit {
-  _config;
-
-  @Input() set config(value) {
-    this._config = value;
-  };
-
   _data;
 
   @Input() set data(value) {
@@ -32,7 +26,6 @@ export class HighChartComponent implements OnInit {
   }
 
   Highcharts = Highcharts;
-  // linechart;
   linechart = {
     style: {
       fontFamily: 'Yekan'

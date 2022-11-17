@@ -20,6 +20,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {HighchartsChartModule} from 'highcharts-angular';
+import {DateModule} from '@app/shared/components/date/date.module';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {HighchartsChartModule} from 'highcharts-angular';
     MatIconModule,
     MatChipsModule,
     HighchartsChartModule,
+    DateModule
 
 
 
