@@ -54,6 +54,7 @@ export class MultiSelectComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+
     this.entityCtrl.setValue(this.setDefaultValueSelected)
     // listen for search field value changes
     this.entityFilterCtrl.valueChanges

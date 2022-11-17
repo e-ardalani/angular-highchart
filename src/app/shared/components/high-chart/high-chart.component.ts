@@ -26,7 +26,7 @@ export class HighChartComponent implements OnInit {
   }
 
   Highcharts = Highcharts;
-  linechart = {
+  linechart: any = {
     style: {
       fontFamily: 'Yekan'
     },
