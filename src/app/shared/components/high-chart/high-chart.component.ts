@@ -20,7 +20,6 @@ export class HighChartComponent implements OnInit {
     const dataThird = this._data[1].data.filter(item => item.name === 'اخابر').map(item => (item.value) * 100);
     this.linechart.series[1].data = dataSecond;
     this.linechart.series[2].data = dataThird;
-    console.log(this.linechart)
 
     this.linechart = JSON.parse(JSON.stringify(this.linechart))
   }

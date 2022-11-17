@@ -20,6 +20,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {HighchartsChartModule} from 'highcharts-angular';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -35,18 +36,14 @@ import {HighchartsChartModule} from 'highcharts-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule,
+    BrowserAnimationsModule,
     DatePickerModule,
-    NgxMatSelectSearchModule,
-    MatFormFieldModule,
+    HighchartsChartModule,
     MatSelectModule,
     NgxMatSelectSearchModule,
     ReactiveFormsModule,
     CommonModule,
-    MatSlideToggleModule,
-    MatIconModule,
-    MatChipsModule,
-    HighchartsChartModule
+    MatFormFieldModule
 
 
   ],

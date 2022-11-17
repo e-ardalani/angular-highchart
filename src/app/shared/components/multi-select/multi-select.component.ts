@@ -77,7 +77,6 @@ export class MultiSelectComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onChange($event) {
     this.selectedItemLength=$event?.value?.length;
-    console.log(this.onSelectionChange)
     this.onSelectionChange.emit($event);
   }
 
